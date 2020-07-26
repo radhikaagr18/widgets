@@ -3,7 +3,6 @@ function init(Survey, $) {
   var widget = {
     activatedBy: "property",
     name: "select2",
-    htmlTemplate: "<select style='width: 100%;'></select>",
     widgetIsLoaded: function () {
       return typeof $ == "function" && !!$.fn.select2;
     },
@@ -45,7 +44,8 @@ function init(Survey, $) {
         });
       }
     },
-    isDefaultRender: true,
+    htmlTemplate:
+      "<div><select style='width: 100%;'></select><textarea></textarea></div>",
     afterRender: function (question, el) {
       var select2Config = question.select2Config;
       var settings =
@@ -54,6 +54,20 @@ function init(Survey, $) {
           : select2Config;
       if (!settings) settings = {};
       var $el = $(el).is("select") ? $(el) : $(el).find("select");
+      var $otherElement = $(el).find("textarea");
+      $otherElement.addClass(question.cssClasses.other);
+      $otherElement.bind("input propertychange", function () {
+        if (isSettingValue) return;
+        question.comment = $otherElement.val();
+      });
+      var updateComment = function () {
+        $otherElement.val(question.comment);
+        if (question.isOtherSelected) {
+          $otherElement.show();
+        } else {
+          $otherElement.hide();
+        }
+      };
       var isSettingValue = false;
       var updateValueHandler = function () {
         if (isSettingValue) return;
@@ -68,8 +82,9 @@ function init(Survey, $) {
             true
           );
           $el.append(newOption).trigger("change");
-          isSettingValue = false;
         }
+        updateComment();
+        isSettingValue = false;
       };
       var updateChoices = function () {
         $el.select2().empty();
@@ -93,14 +108,20 @@ function init(Survey, $) {
           });
           $el.select2(settings);
         }
+        // fixed width accrording to https://stackoverflow.com/questions/45276778/select2-not-responsive-width-larger-than-container
+        if (!!el.querySelector(".select2")) {
+          el.querySelector(".select2").style.width = "100%";
+        }
         if (!!el.nextElementSibling) {
           el.nextElementSibling.style.marginBottom = "1px";
         }
         updateValueHandler();
       };
 
+      $otherElement.prop("disabled", question.isReadOnly);
       question.readOnlyChangedCallback = function () {
         $el.prop("disabled", question.isReadOnly);
+        $otherElement.prop("disabled", question.isReadOnly);
       };
 
       question.registerFunctionOnPropertyValueChanged(
@@ -111,10 +132,12 @@ function init(Survey, $) {
       );
       updateChoices();
       $el.on("select2:select", function (e) {
-        question.value = e.target.value;
+        question.renderedValue = e.target.value;
+        updateComment();
       });
       $el.on("select2:unselecting", function (e) {
-        question.value = null;
+        question.renderedValue = null;
+        updateComment();
       });
       question.valueChangedCallback = updateValueHandler;
       updateValueHandler();

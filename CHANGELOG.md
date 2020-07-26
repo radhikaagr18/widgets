@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.23](https://github.com/surveyjs/widgets/compare/v1.7.22...v1.7.23) (2020-07-22)
+
+### [1.7.22](https://github.com/surveyjs/widgets/compare/v1.7.21...v1.7.22) (2020-07-22)
+
+### [1.7.21](https://github.com/surveyjs/widgets/compare/v1.7.20...v1.7.21) (2020-07-22)
+
+
+### Bug Fixes
+
+* sortable list text changing not working on typing or on blur [#204](https://github.com/surveyjs/widgets/issues/204) ([d5ca377](https://github.com/surveyjs/widgets/commit/d5ca377fb546fe8ce5f556ebfad8d22b1746476b))
+
+### [1.7.20](https://github.com/surveyjs/widgets/compare/v1.7.19...v1.7.20) (2020-07-15)
+
+### [1.7.19](https://github.com/surveyjs/widgets/compare/v1.7.18...v1.7.19) (2020-07-09)
+
+### [1.7.18](https://github.com/surveyjs/widgets/compare/v1.7.17...v1.7.18) (2020-07-04)
+
+### [1.7.17](https://github.com/surveyjs/widgets/compare/v1.7.16...v1.7.17) (2020-07-01)
+
+### [1.7.16](https://github.com/surveyjs/widgets/compare/v1.7.15...v1.7.16) (2020-06-30)
+
+### [1.7.15](https://github.com/surveyjs/widgets/compare/v1.7.14...v1.7.15) (2020-06-25)
+
+### [1.7.14](https://github.com/surveyjs/widgets/compare/v1.7.13...v1.7.14) (2020-06-25)
+
+### [1.7.13](https://github.com/surveyjs/widgets/compare/v1.7.12...v1.7.13) (2020-06-24)
+
+### [1.7.12](https://github.com/surveyjs/widgets/compare/v1.7.11...v1.7.12) (2020-06-16)
+
+### [1.7.11](https://github.com/surveyjs/widgets/compare/v1.7.10...v1.7.11) (2020-06-10)
+
+
+### Bug Fixes
+
+* **nouislider:** explicit cast to number ([#195](https://github.com/surveyjs/widgets/issues/195)) ([51e9209](https://github.com/surveyjs/widgets/commit/51e920977a5c191dcca45ab91d29782675b0f022))
+
+### [1.7.10](https://github.com/surveyjs/widgets/compare/v1.7.9...v1.7.10) (2020-06-03)
+
+### [1.7.9](https://github.com/surveyjs/widgets/compare/v1.7.8...v1.7.9) (2020-05-27)
+
+### [1.7.8](https://github.com/surveyjs/widgets/compare/v1.7.7...v1.7.8) (2020-05-26)
+
+### [1.7.7](https://github.com/surveyjs/widgets/compare/v1.7.6...v1.7.7) (2020-05-19)
+
 ### [1.7.6](https://github.com/surveyjs/widgets/compare/v1.7.5...v1.7.6) (2020-05-12)
 
 ### [1.7.5](https://github.com/surveyjs/widgets/compare/v1.7.4...v1.7.5) (2020-05-07)
