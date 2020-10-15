@@ -185,6 +185,10 @@ function init(Survey) {
           source.options.disabled = false;
         }
       };
+      question.registerFunctionOnPropertyValueChanged(
+        "visibleChoices",
+        updateValueHandler
+      );
       updateValueHandler();
     },
     willUnmount: function (question, el) {

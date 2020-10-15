@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.9](https://github.com/surveyjs/custom-widgets/compare/v1.8.8...v1.8.9) (2020-10-14)
+
+### [1.8.8](https://github.com/surveyjs/custom-widgets/compare/v1.8.7...v1.8.8) (2020-10-09)
+
+### [1.8.7](https://github.com/surveyjs/custom-widgets/compare/v1.8.6...v1.8.7) (2020-10-06)
+
+### [1.8.6](https://github.com/surveyjs/custom-widgets/compare/v1.8.4...v1.8.6) (2020-09-29)
+
+### [1.8.4](https://github.com/surveyjs/widgets/compare/v1.8.3...v1.8.4) (2020-09-22)
+
+### [1.8.3](https://github.com/surveyjs/widgets/compare/v1.8.2...v1.8.3) (2020-09-16)
+
+### [1.8.2](https://github.com/surveyjs/widgets/compare/v1.8.1...v1.8.2) (2020-09-10)
+
+### [1.8.1](https://github.com/surveyjs/widgets/compare/v1.8.0...v1.8.1) (2020-09-09)
+
+## [1.8.0](https://github.com/surveyjs/widgets/compare/v1.7.28...v1.8.0) (2020-09-02)
+
+### [1.7.28](https://github.com/surveyjs/widgets/compare/v1.7.27...v1.7.28) (2020-08-25)
+
+### [1.7.27](https://github.com/surveyjs/widgets/compare/v1.7.26...v1.7.27) (2020-08-19)
+
+### [1.7.26](https://github.com/surveyjs/widgets/compare/v1.7.25...v1.7.26) (2020-08-11)
+
+### [1.7.25](https://github.com/surveyjs/widgets/compare/v1.7.24...v1.7.25) (2020-08-04)
+
+### [1.7.24](https://github.com/surveyjs/widgets/compare/v1.7.23...v1.7.24) (2020-07-28)
+
 ### [1.7.23](https://github.com/surveyjs/widgets/compare/v1.7.22...v1.7.23) (2020-07-22)
 
 ### [1.7.22](https://github.com/surveyjs/widgets/compare/v1.7.21...v1.7.22) (2020-07-22)

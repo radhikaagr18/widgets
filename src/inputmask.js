@@ -23,17 +23,21 @@ function init(Survey) {
     activatedByChanged: function (activatedBy) {
       if (Survey.JsonObject.metaData.findProperty("text", "inputMask")) return;
       var properties = [
-        "inputFormat",
+        { name: "inputFormat", category: "general" },
         {
           name: "prefix",
+          category: "general",
+
           visible: false,
         },
         {
           name: "autoUnmask:boolean",
+          category: "general",
           default: true,
         },
         {
           name: "inputMask",
+          category: "general",
           default: "none",
           choices: [
             "none",
@@ -91,6 +95,7 @@ function init(Survey) {
       Inputmask(mask, options).mask(el);
 
       el.onblur = function () {
+        if (!el.inputmask) return;
         if (surveyElement.value === el.inputmask.getemptymask()) {
           surveyElement.value = "";
         }
@@ -105,6 +110,7 @@ function init(Survey) {
       };
 
       var pushValueHandler = function () {
+        if (!el.inputmask) return;
         if (el.inputmask.isComplete()) {
           surveyElement.value = options.autoUnmask
             ? el.inputmask.unmaskedvalue()
@@ -116,7 +122,10 @@ function init(Survey) {
       el.onfocusout = el.onchange = pushValueHandler;
 
       var updateHandler = function () {
-        el.value = surveyElement.value === undefined || surveyElement.value === null ? "" : surveyElement.value;
+        el.value =
+          surveyElement.value === undefined || surveyElement.value === null
+            ? ""
+            : surveyElement.value;
       };
       surveyElement.valueChangedCallback = updateHandler;
       updateHandler();

@@ -25,11 +25,13 @@ function init(Survey, $) {
       if (activatedBy == "property") {
         Survey.JsonObject.metaData.addProperty("dropdown", {
           name: "renderAs",
-          default: "standart",
-          choices: ["select2", "standart"],
+          category: "general",
+          default: "standard",
+          choices: ["select2", "standard"],
         });
         Survey.JsonObject.metaData.addProperty("dropdown", {
           dependsOn: "renderAs",
+          category: "general",
           name: "select2Config",
           visibleIf: function (obj) {
             return obj.renderAs == "select2";
@@ -40,6 +42,7 @@ function init(Survey, $) {
         Survey.JsonObject.metaData.addClass("select2", [], null, "dropdown");
         Survey.JsonObject.metaData.addProperty("select2", {
           name: "select2Config",
+          category: "general",
           default: null,
         });
       }
@@ -75,13 +78,15 @@ function init(Survey, $) {
         if ($el.find("option[value='" + question.value + "']").length) {
           $el.val(question.value).trigger("change");
         } else {
-          var newOption = new Option(
-            question.value, //TODO if question value is object then need to improve
-            question.value,
-            true,
-            true
-          );
-          $el.append(newOption).trigger("change");
+          if (question.value !== null && question.value !== undefined) {
+            var newOption = new Option(
+              question.value, //TODO if question value is object then need to improve
+              question.value,
+              true,
+              true
+            );
+            $el.append(newOption).trigger("change");
+          }
         }
         updateComment();
         isSettingValue = false;
@@ -143,7 +148,10 @@ function init(Survey, $) {
       updateValueHandler();
     },
     willUnmount: function (question, el) {
-      $(el).find("select").off("select2:select").select2("destroy");
+      var $select2 = $(el).find("select");
+      if (!!$select2.data("select2")) {
+        $select2.off("select2:select").select2("destroy");
+      }
       question.readOnlyChangedCallback = null;
     },
   };
